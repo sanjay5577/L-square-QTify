@@ -13,7 +13,8 @@ code {
 } */
 
 body{
-  font-family: poppins 
+  font-family: poppins;
+  margin: 0px;
 }
 
 .swiper-slide{
