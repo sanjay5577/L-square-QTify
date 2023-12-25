@@ -2,11 +2,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 40vh;
+    height: 270px;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
   }
   .hero-box{
     display: flex;
@@ -22,7 +23,7 @@
   
   .hero-heading {
     font-size: 2rem;
-    position: relative;
+    /* position: relative; */
     left: 1rem;
     color: white;
     font-weight: 600;
@@ -41,4 +42,9 @@ margin: 10px;
     height: 50%;
     object-fit: contain;
   }
+
+.cards-div{
+  background-color: #121212;
+  display: flex;
+}
   

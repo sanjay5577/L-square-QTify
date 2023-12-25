@@ -1,0 +1,41 @@
+.header-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 30px;
+    margin : 0px 32px
+
+}
+
+h4{
+    padding: 0px;
+    margin: 0px;
+    display:inline;
+    
+}
+
+.cardWrapper{
+    margin : 0px 32px
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+ height: auto ;
+    
+}
+
+.toggleText{
+cursor: pointer;
+color: #34C94B;
+}
+
+.titleText{
+color: white;
+}
+.section-div{
+ background-color: #121212;
+ margin-bottom: 32px;
+ 
+}

@@ -1,0 +1,1 @@
+export const BACKENDPOINT ="https://qtify-backend-labs.crio.do";

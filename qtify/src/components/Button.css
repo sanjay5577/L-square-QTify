@@ -1,6 +1,16 @@
+.button{
+    background-color: black;
+    color: #34C94B;
+    border: 1px;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    /* cursor: pointer; */
+    
+}
 
-
-.button :hover{
+.button:hover{
     cursor: pointer;
 
 }

@@ -2,15 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    height: 5vh;
+    height: 74px;
+    padding: 0px 32px;
 }
 
-.search {
-    min-width: 36rem;
-    position: relative;
-    left: 5rem;
-    border-radius: 5px;
-  }
 
   

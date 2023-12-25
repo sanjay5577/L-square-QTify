@@ -1,0 +1,15 @@
+.card{
+    width:"160" !important;
+    height:"230"
+}
+
+
+.cardName{
+    text-align: left;
+}
+.chip{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    
+}
