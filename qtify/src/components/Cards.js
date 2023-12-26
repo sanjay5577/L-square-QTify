@@ -1,12 +1,7 @@
-
 import {
-  Button,
   Card,
-  CardActions,
-  CardContent,
   CardMedia,
   Link,
-  Rating,
   Tooltip,
   Typography,
 } from "@mui/material";
@@ -17,6 +12,10 @@ import "./Cards.css";
 
 
 const Cards =({data, type})=>{
+
+  const getCard =(type)=>{
+    switch(type){
+        case "album":{
 
     return (
       <>
@@ -42,6 +41,37 @@ const Cards =({data, type})=>{
         
        </>
     )
+
+   }
+
+   case "song":{
+    const {image,likes,title} =data;
+    return(
+    <div className="wrapper">
+        <div className="card">
+            <img src={image} alt="song" />
+            <div className="banner">
+                <div className="fill">
+                   <p>{likes} Likes</p> 
+                </div>
+            </div>
+        </div>
+        <div className="titlewrapper">
+            <p>{title}</p>
+        </div>
+    </div>
+    )
+    
+    
+}
+
+       default:{
+          return<></>
+       }
+  }
+}
+
+return getCard(type);
 
 }
  export default Cards;
