@@ -29,7 +29,7 @@ const Cards =({data, type})=>{
             component ="img"
           />
           <div  className="chip">
-          <Chip label={`${data.follows} Follows`}  sx={{color:"tertiary.main",bgcolor:"secondary.main"}}/>
+          <Chip  label={`${data.follows} Follows`} sx={{color:"tertiary.main",bgcolor:"secondary.main"}}/>
           </div>
           
         </Card>
@@ -47,19 +47,23 @@ const Cards =({data, type})=>{
    case "song":{
     const {image,likes,title} =data;
     return(
-    <div className="wrapper">
-        <div className="card">
-            <img src={image} alt="song" />
-            <div className="banner">
-                <div className="fill">
-                   <p>{likes} Likes</p> 
-                </div>
-            </div>
-        </div>
-        <div className="titlewrapper">
-            <p>{title}</p>
-        </div>
-    </div>
+      <>
+      <Card className="card"  sx={{ borderRadius:"10px", width:"160" ,height:"230"}}>
+      <CardMedia
+        sx={{ height: 160 ,width:160}}
+        image={image}
+        title="song image"
+        component ="img"
+      />
+      <div  className="chip">
+      <Chip  label={`${likes} Likes`} sx={{color:"tertiary.main",bgcolor:"secondary.main"}}/>
+      </div>
+      
+    </Card>
+    <Typography className="cardName" sx={{color:"tertiary.main" , fontSize:"14px"}}>
+    {title}
+   </Typography>
+   </>
     )
     
     

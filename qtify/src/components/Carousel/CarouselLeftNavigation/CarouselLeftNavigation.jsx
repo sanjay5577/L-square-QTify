@@ -6,7 +6,6 @@ import "./CarouselLeftNavigation.css"
 export default function CarouselLeftNavigation(){
     const swiper =useSwiper();
     const [isBeginning ,setIsBeginning]=useState(swiper.isBeginning);
-    console.log(isBeginning)
     useEffect(()=>{
         swiper.on('slideChange' ,function(){
             setIsBeginning(swiper.isBeginning);

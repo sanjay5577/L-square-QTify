@@ -3,9 +3,10 @@ import { useState } from "react";
 import "./Section.css"
 import Cards from "./Cards"
 import { CircularProgress } from "@mui/material";
-import Carousel from "../components/Carousel/Carousel"
+import Carousel from "../components/Carousel/Carousel";
+import BasicTabs from "./BasicTabs";
 
-export default function Section({title,data,type})
+export default function Section({title,data,type,value,filteredData,handleChange})
 {
     const [carouselToggle,setCarouselToggle] = useState(true);
     const handleToggle = () => {
@@ -15,8 +16,15 @@ export default function Section({title,data,type})
         <div className="section-div">
             <div className="header-section">
                 <h4 className="titleText" >{title}</h4>
-                <h4 className="toggleText" onClick={handleToggle}>{!carouselToggle ? "Collapse All" : "Show All"}</h4>
+                {
+                type !== "song" ?
+                <h4 className="toggleText" onClick={handleToggle}>{!carouselToggle ? "Collapse All" : "Show All"}</h4> 
+                : null}
+
             </div>
+
+            {type ==='song'?(<BasicTabs value={value} handleChange={handleChange} filteredData={filteredData}/>) : null}
+
         {data.length === 0 ? (
         <CircularProgress/>) :(
             <div className="cardWrapper">

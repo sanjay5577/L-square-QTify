@@ -12,7 +12,10 @@ import {BACKENDPOINT }from "../api"
 const Home =()=>{
 
   const[topalbum, setTopAlbum] = useState([]);
-  const[newalbum, setNewAlbum] = useState([])
+  const[newalbum, setNewAlbum] = useState([]);
+  const[songsdata , setSongsData] = useState([]);
+  const[value, setValue] = useState(0);
+  const[filterdatavalues , setFilterDataValues]=useState([]);
 
   useEffect(() => {
     const onLoader =async()=>{
@@ -21,6 +24,11 @@ const Home =()=>{
 
       const newalbumdata = await  performAPICallNewAlbum()
       setNewAlbum(newalbumdata)
+
+      const songs= await  performAPICallSongs()
+      setSongsData(songs)
+      setFilterDataValues(songs)
+
     }
     onLoader();
   },[]);
@@ -47,7 +55,66 @@ catch(e){
     console.log(e)
    }
      
-     }
+ }
+
+ const performAPICallSongs=async()=>{
+  try{
+   const songsapidata = await axios.get(`${BACKENDPOINT}/songs`)
+ return songsapidata.data
+ }
+ catch(e){
+  console.log(e)
+ }
+   
+}
+
+const generatedata =(value)=>{
+  let key;
+
+  if(value ===0){
+    setFilterDataValues(songsdata);
+    return;
+  }
+
+  else if(value ===1){
+    key ="rock"
+  }
+
+  else if(value ===2){
+    key ="pop"
+  }
+
+
+  else if(value ===3){
+    key ="jazz"
+  }
+
+  else if(value ===4){
+    key ="blues"
+  }
+
+  const data = songsdata.map((item)=>{
+    return item.genre.key ===key;
+  })
+
+  setFilterDataValues(data);
+
+}
+
+const filterdata =(value)=>{
+  generatedata(value);
+}
+
+
+const handleChange =(event, newValue)=>{
+  setValue(newValue);
+  generatedata(newValue);
+
+}
+
+
+
+
 
   return (
     <div >
@@ -78,6 +145,9 @@ catch(e){
       topalbum.length !==0 && (<Section title={"Top Albums"} data={topalbum} type ={"album"}/>)
       }{
       newalbum.length !==0 && (<Section title={"New Albums"} data={newalbum} type ={"album"}/>)
+      }
+      {
+      filterdatavalues.length !==0 && (<Section title={"Songs"} data={filterdatavalues} type ={"song"} value={value} filteredData={filterdata} handleChange={handleChange}/>)
       }
        </Box>
       
