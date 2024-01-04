@@ -45,7 +45,7 @@ export default function BasicTabs({ filteredData }) {
     const handleChange = (event, newValue) => {
         filteredData(newValue)
         setValue(newValue)
-        //     console.log('new value is ' + newValue)
+        console.log('new value is ' + newValue)
     }
     return (
         <Box sx={{ width: '100%' }}>

@@ -93,16 +93,20 @@ const generatedata =(value)=>{
     key ="blues"
   }
 
-  const data = songsdata.map((item)=>{
-    return item.genre.key ===key;
-  })
+  const data = songsdata.filter((item)=>{
+     return item.genre.key ===key
+})
+
+  console.log(data)
 
   setFilterDataValues(data);
 
 }
 
 const filterdata =(value)=>{
+  console.log("filter data triggered" + value)
   generatedata(value);
+  
 }
 
 
